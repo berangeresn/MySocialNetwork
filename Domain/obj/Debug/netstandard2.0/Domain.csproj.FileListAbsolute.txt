@@ -1,0 +1,8 @@
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\obj\Debug\netstandard2.0\Domain.dll
+C:\Users\Bérangère\Documents\Entraînement\TheNewSocialNetwork\Domain\obj\Debug\netstandard2.0\Domain.pdb
