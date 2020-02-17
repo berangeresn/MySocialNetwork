@@ -12,5 +12,15 @@ namespace Persistence
         }
 
         public DbSet<Value> Values { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Value>()
+            .HasData(
+                new Value (1, "Value 101"), 
+                new Value(2, "Value 102"), 
+                new Value (3, "Value 103")
+            );
+        }
     }
 }

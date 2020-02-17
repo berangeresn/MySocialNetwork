@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {}
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
               }
             }
           }
