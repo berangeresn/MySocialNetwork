@@ -27,6 +27,7 @@ namespace API
                     // if not, it'll be created based on our migrations
                     var context = services.GetRequiredService<DataContext>();
                     context.Database.Migrate();
+                    Seed.SeedData(context);
                 }
                 catch (Exception ex) 
                 {
