@@ -8,6 +8,15 @@ import { ActivityDashboard } from "../../features/activities/dashboard/ActivityD
 const App = () => {
   // UseState Hook (c'est un array): [state, setState] + ne pas oublier le type du State
   const [activities, setActivities] = useState<IActivity[]>([]);
+  // selectedActivity peut être de type Activity ou null
+  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(
+    null
+  );
+  const [editMode, setEditMode] = useState(false);
+
+  const handleSelectActivity = (id: string) => {
+    setSelectedActivity(activities.filter(act => act.id === id)[0]);
+  };
 
   // UseEffect Hook est exécuté chaque fois que le component est rendu. Ne pas oublier de rajouter un empty array en 2e paramètre :
   // cela permet de run le component une seule et unique fois. Sinon boucle infinie.
@@ -22,8 +31,14 @@ const App = () => {
   return (
     <Fragment>
       <NavBar />
-      <Container style={{marginTop: '7em'}}>
-        <ActivityDashboard activities={activities}/>
+      <Container style={{ marginTop: "7em" }}>
+        <ActivityDashboard
+          activities={activities}
+          selectActivity={handleSelectActivity}
+          selectedActivity={selectedActivity}
+          editMode={editMode}
+          setEditMode={setEditMode}
+        />
       </Container>
     </Fragment>
   );
