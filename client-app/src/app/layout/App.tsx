@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import { Header, Icon, List } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { IActivity } from "../models/activity";
+import { NavBar } from "../../features/nav/NavBar";
+import { ActivityDashboard } from "../../features/activities/dashboard/ActivityDashboard";
 
 const App = () => {
   // UseState Hook (c'est un array): [state, setState] + ne pas oublier le type du State
   const [activities, setActivities] = useState<IActivity[]>([]);
 
-  // UseEffect Hook est exécuté chaque fois que le component est rendu. Ne pas oublier de rajouter un empty array en 2e paramètre : 
+  // UseEffect Hook est exécuté chaque fois que le component est rendu. Ne pas oublier de rajouter un empty array en 2e paramètre :
   // cela permet de run le component une seule et unique fois. Sinon boucle infinie.
   useEffect(() => {
     axios
@@ -18,17 +20,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Header as="h2">
-        <Icon name="users" />
-        <Header.Content>Flutter Activities</Header.Content>
-      </Header>
-      <List>
-        {activities.map(activity => (
-          <List.Item key={activity.id}>{activity.title}</List.Item>
-        ))}
-      </List>
-    </div>
+    <Fragment>
+      <NavBar />
+      <Container style={{marginTop: '7em'}}>
+        <ActivityDashboard activities={activities}/>
+      </Container>
+    </Fragment>
   );
 };
 
