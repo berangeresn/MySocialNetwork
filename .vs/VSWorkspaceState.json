@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Application",
+    "\\Application\\Activities",
+    "\\Domain",
+    "\\Persistence"
+  ],
+  "SelectedNode": "\\Application\\Activities\\Create.cs",
+  "PreviewInSolutionExplorer": false
+}
