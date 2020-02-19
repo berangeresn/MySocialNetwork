@@ -1,12 +1,18 @@
-import React, { useState, useEffect, Fragment, SyntheticEvent } from "react";
+import React, { useState, useEffect, Fragment, SyntheticEvent, useContext } from "react";
 import { Container } from "semantic-ui-react";
 import { IActivity } from "../models/activity";
 import { NavBar } from "../../features/nav/NavBar";
 import { ActivityDashboard } from "../../features/activities/dashboard/ActivityDashboard";
 import agent from "../api/agent";
 import { LoadingComponent } from "./LoadingComponent";
+import { observer } from 'mobx-react-lite';
+import ActivityStore from '../stores/ActivityStore';
 
 const App = () => {
+
+  // hook pour le state management by MobX
+  const activityStore = useContext(ActivityStore);
+
   // UseState Hook (c'est un array): [state, setState] + ne pas oublier le type du State
   const [activities, setActivities] = useState<IActivity[]>([]);
   // selectedActivity peut être de type Activity ou null
@@ -19,37 +25,6 @@ const App = () => {
   // target représente le name du button
   const [target, setTarget] = useState('');
 
-  const handleSelectActivity = (id: string) => {
-    setSelectedActivity(activities.filter(act => act.id === id)[0]);
-    setEditMode(false);
-  };
-
-  const handleOpenCreateForm = () => {
-    setSelectedActivity(null);
-    setEditMode(true);
-  };
-
-  const handleCreateActivity = (activity: IActivity) => {
-    setSubmitting(true);
-    agent.Activities.create(activity).then(() => {
-      setActivities([...activities, activity]);
-      setSelectedActivity(activity);
-      setEditMode(false);
-    }).then(() => setSubmitting(false))
-  };
-
-  const handleEditActivity = (activity: IActivity) => {
-    setSubmitting(true);
-    agent.Activities.update(activity).then(() => {
-      setActivities([
-        ...activities.filter(a => a.id !== activity.id),
-        activity
-      ]);
-      setSelectedActivity(activity);
-      setEditMode(false);
-    }).then(() => setSubmitting(false))
-  };
-
   const handleDeleteActivity = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
     setSubmitting(true);
     setTarget(event.currentTarget.name);
@@ -58,36 +33,18 @@ const App = () => {
     }).then(() => setSubmitting(false))
   };
 
-  // UseEffect Hook est exécuté chaque fois que le component est rendu. Ne pas oublier de rajouter un empty array en 2e paramètre :
-  // cela permet de run le component une seule et unique fois. Sinon boucle infinie.
+  // UseEffect Hook est exécuté chaque fois que le component est rendu.
   useEffect(() => {
-    agent.Activities.list().then(response => {
-      let activities: IActivity[] = [];
-      // date format
-      response.forEach(activity => {
-        activity.date = activity.date.split(".")[0];
-        activities.push(activity);
-      });
-      setActivities(activities);
-      // loader
-    }).then(() => setLoading(false));
-  }, []);
+    activityStore.loadActivities();
+  }, [activityStore]);
 
-  if (loading) return <LoadingComponent content='Chargement des activités...' />
+  if (activityStore.loadingInitial) return <LoadingComponent content='Chargement des activités...' />
 
   return (
     <Fragment>
-      <NavBar openCreateForm={handleOpenCreateForm} />
+      <NavBar />
       <Container style={{ marginTop: "7em" }}>
         <ActivityDashboard
-          activities={activities}
-          selectActivity={handleSelectActivity}
-          selectedActivity={selectedActivity}
-          editMode={editMode}
-          setEditMode={setEditMode}
-          setSelectedActivity={setSelectedActivity}
-          createActivity={handleCreateActivity}
-          editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
           submitting={submitting}
           target={target}
@@ -97,4 +54,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default observer(App);
