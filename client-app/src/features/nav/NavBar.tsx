@@ -11,7 +11,7 @@ export const NavBar: React.FC<IProps> = ({openCreateForm}) => {
       <Container>
         <Menu.Item header>
           <img src="/assets/logo.png" alt="logo" style={{marginRight: '10px'}}/>
-          Flutter Activities
+          Loisirs & Activités
         </Menu.Item>
         <Menu.Item name="Activités" />
         <Menu.Item>

@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { Segment, Form, Button } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
+import { v4 as uuid } from "uuid";
 
 interface IProps {
   setEditMode: (editMode: boolean) => void;
   activity: IActivity;
+  createActivity: (activity: IActivity) => void;
+  editActivity: (activity: IActivity) => void;
 }
 
 export const ActivityForm: React.FC<IProps> = ({
   setEditMode,
-  activity: initialFormState
+  activity: initialFormState,
+  createActivity,
+  editActivity
 }) => {
   const initializeForm = () => {
     if (initialFormState) {
@@ -29,14 +34,27 @@ export const ActivityForm: React.FC<IProps> = ({
 
   const [activity, setActivity] = useState<IActivity>(initializeForm);
 
-  const handleInputChange = (event: any) => {
-    console.log(event.target.value);
-    setActivity({ ...activity, [event.target.name]: event.target.value });
+  const handleSubmit = () => {
+    if (activity.id.length === 0) {
+      let newActivity = {
+        ...activity,
+        id: uuid()
+      }
+      createActivity(newActivity);
+    } else {
+      editActivity(activity);
+    }
+  }
+
+  // prend en compte ce qui est écrit par l'user
+  const handleInputChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.currentTarget;
+    setActivity({ ...activity, [name]: value });
   };
 
   return (
     <Segment clearing>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Input
           onChange={handleInputChange}
           name="title"
@@ -45,24 +63,33 @@ export const ActivityForm: React.FC<IProps> = ({
         />
         <Form.TextArea
           rows={3}
+          onChange={handleInputChange}
           name="description"
           placeholder="Description"
           value={activity.description}
         />
         <Form.Input
+          onChange={handleInputChange}
           name="category"
           placeholder="Catégorie"
           value={activity.category}
         />
         <Form.Input
-          type="date"
+          type="datetime-local"
+          onChange={handleInputChange}
           name="date"
           placeholder="Date"
           value={activity.date}
         />
-        <Form.Input placeholder="Ville" name="city" value={activity.city} />
+        <Form.Input
+          placeholder="Ville"
+          onChange={handleInputChange}
+          name="city"
+          value={activity.city}
+        />
         <Form.Input
           placeholder="Destination"
+          onChange={handleInputChange}
           name="venue"
           value={activity.venue}
         />
