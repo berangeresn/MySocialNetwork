@@ -1,35 +1,50 @@
-import React, { useState, FormEvent, useContext } from "react";
+import React, { useState, FormEvent, useContext, useEffect } from "react";
 import { Segment, Form, Button } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
-import ActivityStore from '../../../app/stores/ActivityStore';
+import ActivityStore from "../../../app/stores/ActivityStore";
+import { observer } from "mobx-react-lite";
+import { RouteComponentProps } from "react-router-dom";
 
-interface IProps {
-  activity: IActivity;
+interface DetailParams {
+  id: string;
 }
 
-export const ActivityForm: React.FC<IProps> = ({
-  activity: initialFormState,
+export const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
+  match,
+  history
 }) => {
   const activityStore = useContext(ActivityStore);
-  const {createActivity, editActivity, submitting, cancelFormOpen} = activityStore;
-  const initializeForm = () => {
-    if (initialFormState) {
-      return initialFormState;
-    } else {
-      return {
-        id: "",
-        title: "",
-        category: "",
-        description: "",
-        date: "",
-        city: "",
-        venue: ""
-      };
-    }
-  };
+  const {
+    createActivity,
+    editActivity,
+    submitting,
+    activity: initialFormState,
+    loadActivity,
+    clearActivity
+  } = activityStore;
 
-  const [activity, setActivity] = useState<IActivity>(initializeForm);
+  const [activity, setActivity] = useState<IActivity>({
+    id: '',
+    title: '',
+    category: '',
+    description: '',
+    date: '',
+    city: '',
+    venue: ''
+  });
+
+    // ajouter un tableau vide au minimum en second paramètre sinon boucle infinie
+    useEffect(() => {
+      if (match.params.id && activity.id.length === 0) {
+        loadActivity(match.params.id).then(
+          () => initialFormState && setActivity(initialFormState)
+        );
+      }
+      return (() => {
+        clearActivity();
+      })
+    }, [loadActivity, match.params.id, clearActivity, initialFormState, activity.id.length]);
 
   const handleSubmit = () => {
     if (activity.id.length === 0) {
@@ -37,9 +52,9 @@ export const ActivityForm: React.FC<IProps> = ({
         ...activity,
         id: uuid()
       };
-      createActivity(newActivity);
+      createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`));
     } else {
-      editActivity(activity);
+      editActivity(activity).then(() => history.push(`/activities/${activity.id}`));
     }
   };
 
@@ -100,7 +115,7 @@ export const ActivityForm: React.FC<IProps> = ({
           content="Publier"
         />
         <Button
-          onClick={cancelFormOpen}
+          onClick={() => history.push('/activities')}
           floated="right"
           type="button"
           content="Annuler"
@@ -109,3 +124,5 @@ export const ActivityForm: React.FC<IProps> = ({
     </Segment>
   );
 };
+
+export default observer(ActivityForm);
