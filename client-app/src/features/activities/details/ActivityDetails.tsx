@@ -26,10 +26,13 @@ export const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
 
   useEffect(() => {
     loadActivity(match.params.id);
-  }, [loadActivity, match.params.id]);
+  }, [loadActivity, match.params.id, history]);
 
   if (loadingInitial || !activity)
     return <LoadingComponent content="Chargement..." />;
+
+  if (!activity)
+    return <h2>Il n'y a pas d'activité !</h2>
 
   return (
     <Grid>
