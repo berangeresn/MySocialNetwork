@@ -1,5 +1,7 @@
 using System;
+using Domain;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,8 +24,10 @@ namespace API
                     // when we start the app, we're going to check if we've got a database.
                     // if not, it'll be created based on our migrations
                     var context = services.GetRequiredService<DataContext>();
+                    // we're passing UserManager into the database
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
                     context.Database.Migrate();
-                    Seed.SeedData(context);
+                    Seed.SeedData(context, userManager).Wait();
                 }
                 catch (Exception ex) 
                 {

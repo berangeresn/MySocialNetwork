@@ -1,37 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {}
+    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
+    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
+        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
+              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -43,7 +43,7 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netcoreapp3.1": {
           "dependencies": {
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -52,12 +52,6 @@
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -70,32 +64,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
+        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -106,13 +105,11 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netcoreapp3.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
+              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -125,35 +122,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
+        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
               }
             }
           }
@@ -165,21 +167,15 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
+              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -192,6 +188,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
