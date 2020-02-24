@@ -1361,11 +1361,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
+      "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1381,11 +1381,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+            "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
             },
-            "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
-              "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
+            "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
             }
           }
         }
