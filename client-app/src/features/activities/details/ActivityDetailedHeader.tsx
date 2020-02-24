@@ -4,7 +4,6 @@ import { IActivity } from '../../../app/models/activity';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import { fr } from 'date-fns/locale';
 
 const activityImageStyle = {
   filter: 'brightness(30%)'

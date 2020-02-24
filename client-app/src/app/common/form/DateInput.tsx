@@ -24,6 +24,8 @@ export const DateInput: React.FC<IProps> = ({
         placeholder={placeholder}
         value={input.value || null}
         onChange={input.onChange}
+        onBlur={input.onBlur}
+        onKeyDown={(e) => e.preventDefault()} // permet de ne pas saisir des caractères après saisie d'une date ou d'une heure
         date={date}
         time={time}
         {...rest}
