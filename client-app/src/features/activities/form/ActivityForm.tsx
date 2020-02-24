@@ -1,10 +1,20 @@
 import React, { useState, FormEvent, useContext, useEffect } from "react";
 import { Segment, Form, Button, Grid } from "semantic-ui-react";
-import { IActivity } from "../../../app/models/activity";
+import {
+  IActivityFormValues,
+  ActivityFormValues
+} from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/ActivityStore";
 import { observer } from "mobx-react-lite";
 import { RouteComponentProps } from "react-router-dom";
+import { Form as FinalForm, Field } from "react-final-form";
+import TextInput from "../../../app/common/form/TextInput";
+import TextAreaInput from "../../../app/common/form/TextAreaInput";
+import { SelectInput } from "../../../app/common/form/SelectInput";
+import { category } from "../../../app/common/options/CategoryOptions";
+import { DateInput } from "../../../app/common/form/DateInput";
+import { combineDateAndTime } from "../../../app/common/util/util";
 
 interface DetailParams {
   id: string;
@@ -24,115 +34,113 @@ export const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
     clearActivity
   } = activityStore;
 
-  const [activity, setActivity] = useState<IActivity>({
-    id: "",
-    title: "",
-    category: "",
-    description: "",
-    date: "",
-    city: "",
-    venue: ""
-  });
+  const [activity, setActivity] = useState(new ActivityFormValues());
+  const [loading, setLoading] = useState(false);
 
   // ajouter un tableau vide au minimum en second paramètre sinon boucle infinie
   useEffect(() => {
-    if (match.params.id && activity.id.length === 0) {
-      loadActivity(match.params.id).then(
-        () => initialFormState && setActivity(initialFormState)
-      );
+    if (match.params.id) {
+      setLoading(true);
+      loadActivity(match.params.id)
+        .then(activity => setActivity(new ActivityFormValues(activity)))
+        .finally(() => setLoading(false));
     }
-    return () => {
-      clearActivity();
-    };
-  }, [
-    loadActivity,
-    match.params.id,
-    clearActivity,
-    initialFormState,
-    activity.id.length
-  ]);
+  }, [loadActivity, match.params.id]);
 
-  const handleSubmit = () => {
-    if (activity.id.length === 0) {
+  const handleFormSubmit = (values: any) => {
+    const dateAndTime = combineDateAndTime(values.date, values.time);
+    const { date, time, ...activity } = values;
+    activity.date = dateAndTime;
+    if (activity.id) {
       let newActivity = {
         ...activity,
         id: uuid()
       };
-      createActivity(newActivity).then(() =>
-        history.push(`/activities/${newActivity.id}`)
-      );
+      createActivity(newActivity);
     } else {
-      editActivity(activity).then(() =>
-        history.push(`/activities/${activity.id}`)
-      );
+      editActivity(activity);
     }
-  };
-
-  // prend en compte ce qui est écrit par l'user
-  const handleInputChange = (
-    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.currentTarget;
-    setActivity({ ...activity, [name]: value });
   };
 
   return (
     <Grid>
-      <Grid.Column>
+      <Grid.Column width={10}>
         <Segment clearing>
-          <Form onSubmit={handleSubmit}>
-            <Form.Input
-              onChange={handleInputChange}
-              name="title"
-              placeholder="Titre"
-              value={activity.title}
-            />
-            <Form.TextArea
-              rows={3}
-              onChange={handleInputChange}
-              name="description"
-              placeholder="Description"
-              value={activity.description}
-            />
-            <Form.Input
-              onChange={handleInputChange}
-              name="category"
-              placeholder="Catégorie"
-              value={activity.category}
-            />
-            <Form.Input
-              type="datetime-local"
-              onChange={handleInputChange}
-              name="date"
-              placeholder="Date"
-              value={activity.date}
-            />
-            <Form.Input
-              placeholder="Ville"
-              onChange={handleInputChange}
-              name="city"
-              value={activity.city}
-            />
-            <Form.Input
-              placeholder="Destination"
-              onChange={handleInputChange}
-              name="venue"
-              value={activity.venue}
-            />
-            <Button
-              loading={submitting}
-              floated="right"
-              positive
-              type="submit"
-              content="Publier"
-            />
-            <Button
-              onClick={() => history.push("/activities")}
-              floated="right"
-              type="button"
-              content="Annuler"
-            />
-          </Form>
+          <FinalForm
+            initialValues={activity}
+            onSubmit={handleFormSubmit}
+            render={({ handleSubmit }) => (
+              <Form onSubmit={handleSubmit} loading={loading}>
+                <Field
+                  name="title"
+                  placeholder="Titre"
+                  value={activity.title}
+                  component={TextInput}
+                />
+                <Field
+                  name="description"
+                  placeholder="Description"
+                  value={activity.description}
+                  rows={3}
+                  component={TextAreaInput}
+                />
+                <Field
+                  name="category"
+                  placeholder="Catégorie"
+                  value={activity.category}
+                  component={SelectInput}
+                  options={category}
+                />
+                <Form.Group widths="equal">
+                  <Field
+                    name="date"
+                    date={true}
+                    placeholder="Date"
+                    value={activity.date}
+                    component={DateInput}
+                  />
+                  <Field
+                    name="time"
+                    time={true}
+                    placeholder="Heure"
+                    value={activity.time}
+                    component={DateInput}
+                  />
+                </Form.Group>
+                <Field
+                  placeholder="Ville"
+                  name="city"
+                  value={activity.city}
+                  component={TextInput}
+                />
+                <Field
+                  placeholder="Destination"
+                  name="venue"
+                  value={activity.venue}
+                  component={TextInput}
+                />
+                <Button
+                  loading={submitting}
+                  disabled={loading}
+                  floated="right"
+                  positive
+                  type="submit"
+                  content="Publier"
+                />
+                <Button
+                  onClick={
+                    activity.id
+                      ? () => history.push(`/activities/${activity.id}`)
+                      : () => history.push("/activities")
+                  }
+                  disabled={loading}
+                  floated="right"
+                  type="button"
+                  content="Annuler"
+                />
+              </Form>
+            )}
+          />
         </Segment>
       </Grid.Column>
     </Grid>

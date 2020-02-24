@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { IActivity } from "../../../app/models/activity";
 import { observer } from "mobx-react-lite";
+import { format } from 'date-fns';
 
 export const ActivityListItem: React.FC<{ activity: IActivity }> = ({
   activity
@@ -28,7 +29,7 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({
       </Segment>
       <Segment>
         <Icon name="clock" />
-        {activity.date}
+        {format(activity.date, 'h:mm')}
         <Icon name="marker" />
         {activity.venue}, {activity.city}
       </Segment>

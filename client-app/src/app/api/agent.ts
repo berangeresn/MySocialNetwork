@@ -7,8 +7,8 @@ axios.defaults.baseURL = "http://localhost:5000/api";
 
 // intercepteur pour catch les erreurs HTTP
 axios.interceptors.response.use(undefined, (error) => {
-  if (error.message === 'Erreur Network' && !error.response) {
-    toast.error('Network error -make sure API is running !');
+  if (error.message === 'Natework Error' && !error.response) {
+    toast.error('Network error - make sure API is running !');
   }
   const {status, data, config} = error.response;
   if (status === 404) {
@@ -20,6 +20,7 @@ axios.interceptors.response.use(undefined, (error) => {
   if (status === 500) {
     toast.error('Erreur serveur : voir le terminal pour plus de détails !');
   }
+  throw error;
 });
 
 const responseBody = (response: AxiosResponse) => response.data;
