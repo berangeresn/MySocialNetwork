@@ -13,11 +13,11 @@ export const HomePage = () => {
             alt="logo"
             style={{ marginBottom: 12 }}
           />
-          Reactivities
+          Activities
         </Header>
-        <Header as="h2" inverted content="Welcome to Reactivities" />
-        <Button as={Link} to="/activities" size="huge" inverted>
-          Take me to the activities!
+        <Header as="h2" inverted content="Welcome to Activities" />
+        <Button as={Link} to="/login" size="huge" inverted>
+          Login
         </Button>
       </Container>
     </Segment>

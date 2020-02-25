@@ -2,19 +2,20 @@ import React, { useContext, useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 import { ActivityList } from "./ActivityList";
 import { observer } from "mobx-react-lite";
-import ActivityStore from "../../../app/stores/ActivityStore";
 import { LoadingComponent } from "../../../app/layout/LoadingComponent";
+import { RootStoreContext } from "../../../app/stores/RootStore";
 
 export const ActivityDashboard: React.FC = () => {
   // hook pour le state management by MobX
-  const activityStore = useContext(ActivityStore);
+  const rootStore = useContext(RootStoreContext);
+  const {loadActivities, loadingInitial} = rootStore.activityStore;
 
   // UseEffect Hook est exécuté chaque fois que le component est rendu.
   useEffect(() => {
-    activityStore.loadActivities();
-  }, [activityStore]);
+    loadActivities();
+  }, [loadActivities]);
 
-  if (activityStore.loadingInitial)
+  if (loadingInitial)
     return <LoadingComponent content="Chargement des activités..." />;
     
   return (
