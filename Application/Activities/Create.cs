@@ -1,10 +1,11 @@
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Activities
@@ -22,7 +23,8 @@ namespace Application.Activities
             public string Venue { get; set; }
         }
 
-        public class CommandValidator : AbstractValidator<Command>{
+        public class CommandValidator : AbstractValidator<Command>
+        {
             public CommandValidator()
             {
                 RuleFor(x => x.Title).NotEmpty();
@@ -37,9 +39,11 @@ namespace Application.Activities
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
+            private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context)
+            public Handler(DataContext context, IUserAccessor userAccessor)
             {
+                _userAccessor = userAccessor;
                 _context = context;
             }
 
@@ -57,6 +61,21 @@ namespace Application.Activities
                 };
 
                 _context.Activities.Add(activity);
+
+                // si user existe => accéder à son username via son token
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
+
+                // la participant est ajouté dans la base
+                var attendee = new UserActivity
+                {
+                    AppUser = user,
+                    Activity = activity,
+                    IsHost = true,
+                    DateJoined = DateTime.Now
+                };
+
+                _context.UserActivities.Add(attendee);
+
                 // pour savoir si la requête est exécutée avec succès
                 var success = await _context.SaveChangesAsync() > 0;
                 // si succès => activity ajouté dans database et code 200. 
