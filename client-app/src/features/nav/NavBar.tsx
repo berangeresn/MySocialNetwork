@@ -19,13 +19,13 @@ export const NavBar: React.FC = () => {
           />
           Activities
         </Menu.Item>
-        <Menu.Item name="List" as={NavLink} to="/activities" />
+        <Menu.Item name="Activities" as={NavLink} to="/activities" />
         <Menu.Item>
           <Button
             as={NavLink}
             to="/createActivity"
             positive
-            content="Créer une activité"
+            content="Créer une Activité"
           />
         </Menu.Item>
         {user && (
@@ -35,11 +35,11 @@ export const NavBar: React.FC = () => {
               <Dropdown.Menu>
                 <Dropdown.Item
                   as={Link}
-                  to={`/profile/username`}
-                  text="My profile"
+                  to={`/profile/${user.username}`}
+                  text="Mon Profil"
                   icon="user"
                 />
-                <Dropdown.Item onClick={logout} text="Logout" icon="power" />
+                <Dropdown.Item onClick={logout} text="Déconnexion" icon="power" />
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Item>

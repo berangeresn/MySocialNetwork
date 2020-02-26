@@ -18,8 +18,8 @@ axios.interceptors.request.use(
 );
 
 // intercepteur pour catch les erreurs HTTP
-axios.interceptors.response.use(undefined, error => {
-  if (error.message === "Natework Error" && !error.response) {
+axios.interceptors.response.use(undefined, (error) => {
+  if (error.message === "Network Error" && !error.response) {
     toast.error("Network error - make sure API is running !");
   }
   const { status, data, config } = error.response;
@@ -77,7 +77,9 @@ const Activities = {
   create: (activity: IActivity) => requests.post("/activities/", activity),
   update: (activity: IActivity) =>
     requests.put(`/activities/${activity.id}`, activity),
-  delete: (id: string) => requests.del(`/activities/${id}`)
+  delete: (id: string) => requests.del(`/activities/${id}`),
+  attend: (id: string) => requests.post(`/activities/${id}/attend`, {}),
+  unattend: (id: string) => requests.del(`/activities/${id}/attend`)
 };
 
 const User = {

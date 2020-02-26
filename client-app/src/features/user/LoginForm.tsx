@@ -28,7 +28,6 @@ export const LoginForm = () => {
       render={({
         handleSubmit,
         submitting,
-        form,
         submitError,
         invalid,
         pristine,
@@ -40,13 +39,13 @@ export const LoginForm = () => {
           <Field
             name="password"
             component={TextInput}
-            placeholder="Password"
+            placeholder="Mot de passe"
             type="password"
           />
           {submitError && !dirtySinceLastSubmit && (
             <ErrorMessage
               error={submitError}
-              text="Invalid email or password"
+              text="Email ou mot de passe invalides"
             />
           )}
           <Button

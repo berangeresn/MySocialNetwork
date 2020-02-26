@@ -24,6 +24,7 @@ export default class UserStore {
       })
       // récupérer le token dans le localStorage
       this.rootStore.commonStore.setToken(user.token);
+      this.rootStore.modalStore.closeModal();
       history.push('/activities');
     } catch (error) {
       throw error;

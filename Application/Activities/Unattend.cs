@@ -44,7 +44,7 @@ namespace Application.Activities
                 return Unit.Value;
 
                 if (attendance.IsHost)
-                throw new RestException(HttpStatusCode.BadRequest, new {Attendance = "Vous ne pouvez pas vous retirer en tant qu'hôte"});
+                throw new RestException(HttpStatusCode.BadRequest, new {Attendance = "Vous ne pouvez pas vous retirer en tant qu'organisateur"});
 
                 _context.UserActivities.Remove(attendance);
 

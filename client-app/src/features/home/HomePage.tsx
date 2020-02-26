@@ -6,6 +6,7 @@ import { LoginForm } from "../user/LoginForm";
 import { RegisterForm } from "../user/RegisterForm";
 
 export const HomePage = () => {
+  const token = window.localStorage.getItem("jwt");
   const rootStore = useContext(RootStoreContext);
   const { isLoggedIn, user } = rootStore.userStore;
   const { openModal } = rootStore.modalStore;
@@ -19,39 +20,35 @@ export const HomePage = () => {
             alt="logo"
             style={{ marginBottom: 12 }}
           />
-          Activities
+          Activités
         </Header>
-        {isLoggedIn && user ? (
+        {isLoggedIn && user && token ? (
           <Fragment>
             <Header
               as="h2"
               inverted
-              content={`Welcome back ${user.displayName}`}
+              content={`Hey ! Cela fait plaisir de vous voir, ${user.displayName} !`}
             />
             <Button as={Link} to="/activities" size="huge" inverted>
-              Go to Activities !
+              Voir la liste des activités !
             </Button>
           </Fragment>
         ) : (
           <Fragment>
-            <Header as="h2" inverted content="Welcome to Activities" />
-            <Button
+            <Header as="h2" inverted content="Bienvenue !" />
+            <Button as={Link} to="/login"
               onClick={() => openModal(<LoginForm />)}
-              as={Link}
-              to="/login"
               size="huge"
               inverted
             >
-              Login
+              Connexion
             </Button>
-            <Button
+            <Button as={Link} to="/register"
               onClick={() => openModal(<RegisterForm />)}
-              as={Link}
-              to="/register"
               size="huge"
               inverted
             >
-              Register
+              Inscription
             </Button>
           </Fragment>
         )}
@@ -59,3 +56,5 @@ export const HomePage = () => {
     </Segment>
   );
 };
+
+export default HomePage;
