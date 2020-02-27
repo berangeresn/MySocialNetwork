@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj": {}
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,11 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj"
               },
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -103,11 +103,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -153,14 +153,14 @@
         }
       }
     },
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -211,14 +211,14 @@
         }
       }
     },
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -234,8 +234,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Application\\Application.csproj"
               }
             }
           }
@@ -249,6 +249,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.10.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[5.6.0, )"
@@ -273,14 +277,14 @@
         }
       }
     },
-    "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Bérangère\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bérangère\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -296,8 +300,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
+              "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Bérangère\\Documents\\Entraînement\\TheNewSocialNetwork\\Domain\\Domain.csproj"
               }
             }
           }
