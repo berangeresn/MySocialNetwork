@@ -1,5 +1,7 @@
 using System.Text;
+using System.Threading.Tasks;
 using API.Middleware;
+using API.SignalR;
 using Application.Activities;
 using Application.Interfaces;
 using AutoMapper;
@@ -45,11 +47,12 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000").AllowCredentials();
                 });
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddAutoMapper(typeof(List.Handler));
+            services.AddSignalR();
             services.AddControllers(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -67,7 +70,7 @@ namespace API
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
 
-            services.AddAuthorization(opt => 
+            services.AddAuthorization(opt =>
             {
                 opt.AddPolicy("IsActivityHost", policy =>
                 {
@@ -86,6 +89,20 @@ namespace API
                     IssuerSigningKey = key,
                     ValidateAudience = false,
                     ValidateIssuer = false
+                };
+                opt.Events = new JwtBearerEvents
+                {
+                    // accès au ChatHub de SignalR
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
+                        var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) && (path.StartsWithSegments("/chat")))
+                        {
+                            context.Token = accessToken;
+                        }
+                        return Task.CompletedTask;
+                    }
                 };
             });
 
@@ -113,12 +130,14 @@ namespace API
             app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
-            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // SignalR Hub
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }
