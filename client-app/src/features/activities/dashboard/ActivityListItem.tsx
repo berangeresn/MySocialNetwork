@@ -33,7 +33,7 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({
                 {activity.title}
               </Item.Header>
               <Item.Description>
-                Organisé par {host?.displayName}
+                Organisé par <Link to={`/profile/${host.username}`}> {host?.displayName}</Link>
               </Item.Description>
               {activity.isHost && (
                 <Item.Description>
