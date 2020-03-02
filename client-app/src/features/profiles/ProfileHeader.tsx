@@ -13,17 +13,31 @@ import { IProfile } from "../../app/models/profile";
 import { observer } from "mobx-react-lite";
 
 interface IProps {
-    profile: IProfile
+  profile: IProfile;
+  isCurrentUser: boolean;
+  loading: boolean;
+  follow: (username: string) => void;
+  unfollow: (username: string) => void;
 }
 
-const ProfileHeader: React.FC<IProps> = ({profile}) => {
+const ProfileHeader: React.FC<IProps> = ({
+  profile,
+  isCurrentUser,
+  loading,
+  follow,
+  unfollow
+}) => {
   return (
     <Segment>
       <Grid>
         <Grid.Column width={12}>
           <Item.Group>
             <Item>
-              <Item.Image avatar size="small" src={profile.image || "/assets/user.png"} />
+              <Item.Image
+                avatar
+                size="small"
+                src={profile.image || "/assets/user.png"}
+              />
               <Item.Content verticalAlign="middle">
                 <Header as="h1">{profile.displayName}</Header>
               </Item.Content>
@@ -32,23 +46,35 @@ const ProfileHeader: React.FC<IProps> = ({profile}) => {
         </Grid.Column>
         <Grid.Column width={4}>
           <Statistic.Group widths={2}>
-            <Statistic label="Abonnés" value="5" />
-            <Statistic label="Abonnements" value="42" />
+            <Statistic label="Abonnés" value={profile.followersCount} />
+            <Statistic label="Abonnements" value={profile.followingCount} />
           </Statistic.Group>
           <Divider />
-          <Reveal animated="move">
-            <Reveal.Content visible style={{ width: "100%" }}>
-              <Button fluid color="teal" content="Suivre" />
-            </Reveal.Content>
-            <Reveal.Content hidden>
-              <Button
-                fluid
-                basic
-                color={true ? "red" : "green"}
-                content={true ? "Ne plus suivre" : "Suivre"}
-              />
-            </Reveal.Content>
-          </Reveal>
+          {!isCurrentUser && (
+            <Reveal animated="move">
+              <Reveal.Content visible style={{ width: "100%" }}>
+                <Button
+                  fluid
+                  color="teal"
+                  content={profile.following ? "Suivi" : "Non suivi"}
+                />
+              </Reveal.Content>
+              <Reveal.Content hidden>
+                <Button
+                  loading={loading}
+                  fluid
+                  basic
+                  color={profile.following ? "red" : "green"}
+                  content={profile.following ? "Ne plus suivre" : "Suivre"}
+                  onClick={
+                    profile.following
+                      ? () => unfollow(profile.username)
+                      : () => follow(profile.username)
+                  }
+                />
+              </Reveal.Content>
+            </Reveal>
+          )}
         </Grid.Column>
       </Grid>
     </Segment>
