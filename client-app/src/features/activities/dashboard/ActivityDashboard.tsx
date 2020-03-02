@@ -5,6 +5,8 @@ import { observer } from "mobx-react-lite";
 import { LoadingComponent } from "../../../app/layout/LoadingComponent";
 import { RootStoreContext } from "../../../app/stores/RootStore";
 import ActivityFilters from "./ActivityFilters";
+import ActivityListItemPlaceholder from "./ActivityListItemPlaceholder";
+import InfiniteScroll from "react-infinite-scroller";
 
 export const ActivityDashboard: React.FC = () => {
   // hook pour le state management by MobX
@@ -22,22 +24,22 @@ export const ActivityDashboard: React.FC = () => {
   useEffect(() => {
     loadActivities();
   }, [loadActivities]);
-
-  if (loadingInitial)
-    return <LoadingComponent content="Chargement des activités..." />;
     
   return (
     <Grid>
       <Grid.Column width={10}>
-        <ActivityList />
-        <Button 
-        floated='right'
-        content='En voir plus...'
-        positive
-        disabled={totalPages === page + 1}
-        onClick={handleGetNext}
-        loading={loadingNext}
-        />
+        {loadingInitial && page === 0 ? (
+        <ActivityListItemPlaceholder />
+        ) : (
+          <InfiniteScroll 
+          pageStart={0}
+          loadMore={handleGetNext}
+          hasMore={!loadingNext && page + 1 < totalPages}
+          initialLoad={false}
+          >
+          <ActivityList />
+          </InfiniteScroll>
+        )}
       </Grid.Column>
       <Grid.Column width={6}>
         <ActivityFilters />
